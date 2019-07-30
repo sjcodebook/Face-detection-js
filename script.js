@@ -38,15 +38,10 @@ video.addEventListener('play', () => {
       const { age, gender, genderProbability } = result;
       new faceapi.draw.DrawTextField(
         [
-          `
-          
-                                 ${faceapi.round(age, 0)} years`,
-          `
-                                   ${gender} (${faceapi.round(
-            genderProbability
-          )})`
+          `${faceapi.round(age, 0)} years`,
+          `${gender} (${faceapi.round(genderProbability)})`
         ],
-        result.detection.box.bottomLeft
+        result.detection.box.bottomRight
       ).draw(canvas);
     });
   }, 100);
